@@ -1,5 +1,5 @@
 import Head from "next/head";
-import styles from "./layut.module.css";
+import styles from "./layout.module.css";
 
 const name = "AdbA";
 export const siteTitle = "Next.js blog";
