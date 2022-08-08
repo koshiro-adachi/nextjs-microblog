@@ -18,7 +18,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({allPostsData}) {
+export default function Home({ allPostsData }) {
   return (
     <Layout>
       <section className={utilStyle.headingMd}>
@@ -28,70 +28,18 @@ export default function Home({allPostsData}) {
       <section className={`${utilStyle.headingMd} ${utilStyle.padding1px}`}>
         <h2>📝エンジニアのブログ</h2>
         <div className={styles.grid}>
-          <article>
-            <Link href="/">
-              <img
-                src="/images/thumbnail01.jpg"
-                alt="tumbnali01"
-                className={styles.thumbnailImage}
-              />
-            </Link>
-            <Link href="/">
-              <a className={utilStyle.boldText}>
-                SSGとSSRの使い分けの場面はいつなのか？
-              </a>
-            </Link>
-            <br />
-            <small className={utilStyle.lightText}>August 8, 2022</small>
-          </article>
-          <article>
-            <Link href="/">
-              <img
-                src="/images/thumbnail01.jpg"
-                alt="tumbnali01"
-                className={styles.thumbnailImage}
-              />
-            </Link>
-            <Link href="/">
-              <a className={utilStyle.boldText}>
-                SSGとSSRの使い分けの場面はいつなのか？
-              </a>
-            </Link>
-            <br />
-            <small className={utilStyle.lightText}>August 8, 2022</small>
-          </article>
-          <article>
-            <Link href="/">
-              <img
-                src="/images/thumbnail01.jpg"
-                alt="tumbnali01"
-                className={styles.thumbnailImage}
-              />
-            </Link>
-            <Link href="/">
-              <a className={utilStyle.boldText}>
-                SSGとSSRの使い分けの場面はいつなのか？
-              </a>
-            </Link>
-            <br />
-            <small className={utilStyle.lightText}>August 8, 2022</small>
-          </article>
-          <article>
-            <Link href="/">
-              <img
-                src="/images/thumbnail01.jpg"
-                alt="tumbnali01"
-                className={styles.thumbnailImage}
-              />
-            </Link>
-            <Link href="/">
-              <a className={utilStyle.boldText}>
-                SSGとSSRの使い分けの場面はいつなのか？
-              </a>
-            </Link>
-            <br />
-            <small className={utilStyle.lightText}>August 8, 2022</small>
-          </article>
+          {allPostsData.map(({ id, title, date, thumbnail }) => (
+            <article key={id}>
+              <Link href={`/posts/${id}`}>
+                <img src={`${thumbnail}`} className={styles.thumbnailImage} />
+              </Link>
+              <Link href={`/posts/${id}`}>
+                <a className={utilStyle.boldText}>{title}</a>
+              </Link>
+              <br />
+              <small className={utilStyle.lightText}>{date}</small>
+            </article>
+          ))}
         </div>
       </section>
     </Layout>
