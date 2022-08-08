@@ -4,11 +4,24 @@ import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import Layout from "../components/Layout";
 import utilStyle from "../styles/utils.module.css";
+import { getPostData } from "../lib/post";
 
-export default function Home() {
+//SSGの場合
+export async function getStaticProps() {
+  const allPostsData = getPostData(); //id,title,date,thumbnail
+  console.log(allPostsData);
+
+  return {
+    props: {
+      allPostsData,
+    },
+  };
+}
+
+export default function Home({allPostsData}) {
   return (
     <Layout>
-      <section className={utilStyle.headingMd} >
+      <section className={utilStyle.headingMd}>
         <p>フロントエンドエンジニアになる為修行中の身です。</p>
       </section>
 
@@ -24,7 +37,9 @@ export default function Home() {
               />
             </Link>
             <Link href="/">
-              <a className={utilStyle.boldText}>SSGとSSRの使い分けの場面はいつなのか？</a>
+              <a className={utilStyle.boldText}>
+                SSGとSSRの使い分けの場面はいつなのか？
+              </a>
             </Link>
             <br />
             <small className={utilStyle.lightText}>August 8, 2022</small>
@@ -38,7 +53,9 @@ export default function Home() {
               />
             </Link>
             <Link href="/">
-              <a className={utilStyle.boldText}>SSGとSSRの使い分けの場面はいつなのか？</a>
+              <a className={utilStyle.boldText}>
+                SSGとSSRの使い分けの場面はいつなのか？
+              </a>
             </Link>
             <br />
             <small className={utilStyle.lightText}>August 8, 2022</small>
@@ -52,7 +69,9 @@ export default function Home() {
               />
             </Link>
             <Link href="/">
-              <a className={utilStyle.boldText}>SSGとSSRの使い分けの場面はいつなのか？</a>
+              <a className={utilStyle.boldText}>
+                SSGとSSRの使い分けの場面はいつなのか？
+              </a>
             </Link>
             <br />
             <small className={utilStyle.lightText}>August 8, 2022</small>
@@ -66,7 +85,9 @@ export default function Home() {
               />
             </Link>
             <Link href="/">
-              <a className={utilStyle.boldText}>SSGとSSRの使い分けの場面はいつなのか？</a>
+              <a className={utilStyle.boldText}>
+                SSGとSSRの使い分けの場面はいつなのか？
+              </a>
             </Link>
             <br />
             <small className={utilStyle.lightText}>August 8, 2022</small>
