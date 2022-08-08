@@ -20,7 +20,8 @@
   transition: all 0.3s;
   cursor: pointer;
 }
-
+/*box-shadow= X Y blurred color*/
+/*transition= propaty time*/
 .thumbnailImage:hover {
   transform: translate(4px, 5px);
   box-shadow: none;
