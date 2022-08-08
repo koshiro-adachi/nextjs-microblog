@@ -12,11 +12,13 @@ body {
 * {
   box-sizing: border-box;
 }
+/*全ての要素に適用*/
 
 a {
   color: #0070f3;
   text-decoration: none;
 }
+/*text-decoration=アンダーバーの初期表示を消す*/
 
 a:hover {
   text-decoration: underline;
