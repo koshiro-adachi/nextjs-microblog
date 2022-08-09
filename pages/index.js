@@ -4,11 +4,11 @@ import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import Layout from "../components/Layout";
 import utilStyle from "../styles/utils.module.css";
-import { getPostData } from "../lib/post";
+import { getPostsData } from "../lib/post";
 
 //SSGの場合
 export async function getStaticProps() {
-  const allPostsData = getPostData(); //id,title,date,thumbnail
+  const allPostsData = getPostsData(); //id,title,date,thumbnail
   console.log(allPostsData);
 
   return {
